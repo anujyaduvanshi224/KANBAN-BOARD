@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-html.body{
+html,body{
     width: 100%;
     height: 100%;
 }
@@ -16,6 +16,8 @@ html{
     --bg-color:#000000;
     --primary-text-color:#f4f4f4;
     --bg-button-color: #1a1a1a;
+    --bg-task-color: #2a2a2a;
+    --delete-color: #ff4d4d;
 
     /* padding variables */
     --nav-padding: 15px 30px;
@@ -39,6 +41,12 @@ body{
     color: var(--primary-text-color);
 }
 
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 nav{
     padding: var(--nav-padding);
     display: flex;
@@ -55,3 +63,55 @@ nav button{
     border-radius: var(--border-radius-m);
     cursor: pointer;
 }
+
+section{
+    padding: var(--section-padding);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    gap: var(--padding-xxl);
+}
+
+section .task-column{
+    background-color: var(--bg-button-color);
+    border-radius: var(--border-radius-m);
+    flex-grow: 1;
+    padding: var(--padding-m);
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-m);
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+section .task-column.hover-over {
+    border: 2px solid var(--primary-text-color);
+    scale: 1.05;
+}
+
+section .task-column .heading{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .task-column .task{
+    background-color: var(--bg-task-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s);
+    cursor: grab;
+}
+
+section .task-column .task button{
+    background-color: var(--delete-color);
+    align-self: flex-end;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-m);
+    border-radius: var(--border-radius-s);
+    border: none;
+    outline: none;
+}
+
